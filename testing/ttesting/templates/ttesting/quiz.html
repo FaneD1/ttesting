@@ -1,0 +1,28 @@
+{% extends 'ttesting/base.html' %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h2 class="card-title text-center mb-4">Пройди тест по игре Valorant</h2>
+                
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Введите ваше имя:</label>
+                        <input type="text" name="username" class="form-control" required>
+                    </div>
+                    
+                    <!-- Выводим вопросы -->
+                    <div class="mb-3">
+                        {{ form.as_p }}
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary w-100">Отправить</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
